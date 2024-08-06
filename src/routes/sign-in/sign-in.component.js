@@ -8,6 +8,7 @@ import {
   signout,
   auth,
 } from '../../utils/firebase/firebase.utils';
+import SignupForm from '../../components/sign-up-form/sign-up-form.component';
 
 function SignIn() {
   // useEffect(() => {
@@ -43,6 +44,7 @@ function SignIn() {
       <h1>Sign In Page</h1>
       <button onClick={logGoogleUser}>Sign in with Google Popup</button>
       {/* <button onClick={signInWithGoogleRedirect}>Sign in with Google Redirect</button> */}
+      <SignupForm />
       <button onClick={signOut}>Sign out</button>
     </div>
   );
