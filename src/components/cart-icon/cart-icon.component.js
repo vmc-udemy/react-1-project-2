@@ -1,18 +1,15 @@
 import shopIcon from '../../assets/shopping-bag.svg';
 import { useCartContext } from '../../contexts/cart.context';
-import './cart-icon.styles.scss';
+import { CartIconContainer, ShopingIcon, ItemCount } from './cart-icon.styles';
 
 function CartIcon() {
   const { setIsCardOpen, cartCount } = useCartContext();
 
   return (
-    <div
-      className="cart-icon-container"
-      onClick={() => setIsCardOpen((isOpen) => !isOpen)}
-    >
-      <img src={shopIcon} alt="shop-icon" className="shopping-icon" />
-      <span className="item-count">{cartCount}</span>
-    </div>
+    <CartIconContainer onClick={() => setIsCardOpen((isOpen) => !isOpen)}>
+      <ShopingIcon src={shopIcon} alt="shop-icon" />
+      <ItemCount>{cartCount}</ItemCount>
+    </CartIconContainer>
   );
 }
 

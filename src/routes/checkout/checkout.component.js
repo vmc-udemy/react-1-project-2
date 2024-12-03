@@ -1,28 +1,33 @@
 import ItemCheckout from '../../components/item-checkout/item-checkout.component';
 import { useCartContext } from '../../contexts/cart.context';
 
-import './checkout.styles.scss';
+import {
+  CheckoutContainer,
+  ItemContainer,
+  TotalContainer,
+  SuggestionContainer,
+} from './checkout.styles';
 
 function Checkout() {
   const { cartItems, totalPrice } = useCartContext();
 
   return (
-    <div className="checkout-container">
-      <div className="item-container">
+    <CheckoutContainer>
+      <ItemContainer>
         <span>Product</span>
         <span>Description</span>
         <span>Quantity</span>
         <span>Price</span>
         <span>Remove</span>
-      </div>
+      </ItemContainer>
       {cartItems.map((item) => (
-        <ItemCheckout key={item.id} item={item} className="item-container" />
+        <ItemContainer as={ItemCheckout} key={item.id} item={item} />
       ))}
-      <div className="total-container">TOTAL: ${totalPrice}</div>
-      <div className="suggestion-container">
+      <TotalContainer>TOTAL: ${totalPrice}</TotalContainer>
+      <SuggestionContainer>
         *Please use the following test credit card for payments*
-      </div>
-    </div>
+      </SuggestionContainer>
+    </CheckoutContainer>
   );
 }
 
