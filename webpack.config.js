@@ -6,7 +6,9 @@ module.exports = {
   output: {
     filename: 'main.js',
     path: path.resolve(__dirname, 'dist'),
-    clean: true,
+    clean: {
+      keep: /_redirects/,
+    },
     publicPath: '/',
   },
   module: {
